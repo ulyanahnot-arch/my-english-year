@@ -120,6 +120,15 @@ textarea,input[type=text],input[type=date],input[type=search]{width:100%;backgro
  .footerHelp{font-size:12px}
 }
 </style>
+
+<style>
+.syncIndicator{margin:11px 3px;padding:10px 13px;border-radius:11px;background:#ebf5f2;color:#285c5d;font-size:12px;line-height:1.45;border:1px solid #cde5df;overflow-wrap:anywhere}
+.syncIndicator.isError{background:#fff1ed;border-color:#f2c9bc;color:#983e30}
+.cloudActions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.cloudActions .btn{max-width:100%}
+.cloudNotice{background:#f2f8f5;padding:14px 16px;border:1px solid #d0e8de;border-radius:11px;color:#31545c;line-height:1.55;font-size:13px}
+@media(max-width:680px){.syncIndicator{margin:2px 0 12px}.cloudActions .btn{width:100%}}
+</style>
 </head>
 <body>
 <div class="app">
@@ -137,12 +146,13 @@ textarea,input[type=text],input[type=date],input[type=search]{width:100%;backgro
 <button data-tab="cloud"><span class="symbol">☁</span> Синхронізація</button>
 <button data-tab="settings"><span class="symbol">⚙</span> Налаштування</button>
 </nav>
+<div id="syncIndicator" class="syncIndicator" role="status" aria-live="polite">☁ Хмара: перевірка підключення…</div>
 <div class="sidebarNote"><strong>Крок за кроком, без поспіху.</strong>15 хвилин у складний день — теж навчання.<div class="sideProgress"><span id="sidebarBar"></span></div><span id="sidebarText">Завантажуємо прогрес…</span></div>
 </aside>
 <main class="main">
 <header class="top"><div><div class="eyebrow" id="breadcrumb">План на сьогодні</div><h1 id="pageTitle">Мій рік англійської</h1><p class="sub" id="pageSubtitle">Рухайся у власному темпі.</p></div><div class="todayBadge" id="todayStamp"></div></header>
 <section id="screen"><div class="card"><h3>My English Year</h3><p>Твої завдання та словники завантажуються. Якщо цей текст не зникає, відкрий файл у браузері Safari або Chrome, а не у вікні попереднього перегляду Telegram чи іншого застосунку.</p><p>Для телефона найнадійніше відкрити опубліковану HTTPS-версію сайту. Word-словники також можна відкрити з комплекту файлів.</p></div></section>
-<footer class="footerHelp">Словничок працює без інтернету · Автосинхронізація доступна лише після окремого підключення · Зберігай резервні копії</footer>
+<footer class="footerHelp">Локальний режим працює без інтернету · Синхронізація з Firebase після Google-входу · Зберігай резервні копії</footer>
 </main>
 </div>
 <script>const PLAN={"months":[["High Note 3: Units 1–4","High Note 3","Чотири перші теми, активний словник, Murphy, практика усного мовлення","Описати себе й свої звички без готового тексту"],["High Note 3: Units 5–8","High Note 3","Послідовне опрацювання всіх 1A–1G, Word List, Revision і Online Practice","Переказати подію та висловити власну думку"],["High Note 3: Units 9–10 і повторення","High Note 3","Два останні розділи; повторення Units 1–10 та складних граматичних форм","Самостійно використати фрази з розділів і пройти перевірку"],["High Note 4: перші розділи","High Note 4","Послідовне опрацювання High Note 4; реальні теми й номери розділів за Contents","Вільніше говорити на теми розділів"],["High Note 4: наступні розділи","High Note 4","Лексика, граматика, reading, listening, writing і online-вправи","Переказ відео та аргументована відповідь"],["High Note 4: завершення і перевірка","High Note 4","Завершення та повторення High Note 4; звіряємо обсяг після отримання Contents","Підсумкова перевірка й план слабких місць"],["Складні граматичні конструкції","Murphy + High Note","Verb patterns, gerund, infinitive, умовні речення та діагностовані помилки","Менше помилок у власних висловлюваннях"],["Активна лексика та швидкість мовлення","Зошити + Speak Your Mind","Колокації, фразові дієслова; швидке пригадування слів із попередніх місяців","Розмовляти довше без підказок"],["Фільми, слухання та вимова","Аудіо + серіали + High Note","Shadowing, розбір 2–3 реплік, розуміння живого мовлення","Переказ епізоду англійською"],["Книги та письмо","Читання + Murphy","Адаптована / нескладна художня книга, словосполучення й зв’язне письмо","Обговорити книгу й написати короткий відгук"],["Англійська для майбутньої вчительки","Комплексна практика","Пояснення правил англійською, інструкції для учнів і мініуроки","Пояснити одну тему зрозумілою англійською"],["Підсумок року","Зміцнення B1/B2","Повторити головні слова і граматику, фінальна перевірка 4 навичок","Порівняти початкові й підсумкові записи мовлення"]],"weeks":[{"week":1,"month":1,"topic":"High Note 3 · Unit 01: Looking good","resource":"High Note 3","monthTitle":"High Note 3: Units 1–4","unit":"Unit 01 — Looking good","murphy":"Present Simple / Present Continuous"},{"week":2,"month":1,"topic":"High Note 3 · Unit 02: The digital mind","resource":"High Note 3","monthTitle":"High Note 3: Units 1–4","unit":"Unit 02 — The digital mind","murphy":"Past Simple / Past Continuous"},{"week":3,"month":1,"topic":"High Note 3 · Unit 03: Active and healthy","resource":"High Note 3","monthTitle":"High Note 3: Units 1–4","unit":"Unit 03 — Active and healthy","murphy":"Артиклі a/an/the; множина іменників"},{"week":4,"month":1,"topic":"High Note 3 · Unit 04: Time to move","resource":"High Note 3","monthTitle":"High Note 3: Units 1–4","unit":"Unit 04 — Time to move","murphy":"Present Perfect / Past Simple"},{"week":5,"month":2,"topic":"High Note 3 · Unit 05: The next step","resource":"High Note 3","monthTitle":"High Note 3: Units 5–8","unit":"Unit 05 — The next step","murphy":"Future forms: will / going to"},{"week":6,"month":2,"topic":"High Note 3 · Unit 06: Do the right thing","resource":"High Note 3","monthTitle":"High Note 3: Units 5–8","unit":"Unit 06 — Do the right thing","murphy":"Modal verbs: can, should, must, have to"},{"week":7,"month":2,"topic":"High Note 3 · Unit 07: In the spotlight","resource":"High Note 3","monthTitle":"High Note 3: Units 5–8","unit":"Unit 07 — In the spotlight","murphy":"Infinitive: decide to; need someone to"},{"week":8,"month":2,"topic":"High Note 3 · Unit 08: Consumers’ world","resource":"High Note 3","monthTitle":"High Note 3: Units 5–8","unit":"Unit 08 — Consumers’ world","murphy":"Gerund: before -ing; be used to -ing"},{"week":9,"month":3,"topic":"High Note 3 · Unit 09: The power of nature","resource":"High Note 3","monthTitle":"High Note 3: Units 9–10 і повторення","unit":"Unit 09 — The power of nature","murphy":"First Conditional / Zero Conditional"},{"week":10,"month":3,"topic":"High Note 3 · Unit 10: Justice for all","resource":"High Note 3","monthTitle":"High Note 3: Units 9–10 і повторення","unit":"Unit 10 — Justice for all","murphy":"Second / Third Conditional"},{"week":11,"month":3,"topic":"High Note 3 · повторення Units 1–5","resource":"High Note 3","monthTitle":"High Note 3: Units 9–10 і повторення","unit":"Revision — Units 1–5","murphy":"Past forms: was / were; irregular verbs"},{"week":12,"month":3,"topic":"High Note 3 · повторення Units 6–10 та підсумок","resource":"High Note 3","monthTitle":"High Note 3: Units 9–10 і повторення","unit":"Revision — Units 6–10","murphy":"Повторення найчастіших граматичних помилок"},{"week":13,"month":4,"topic":"High Note 4 · Unit 01: Get the message","resource":"High Note 4","monthTitle":"High Note 4: перші розділи","unit":"Unit 01 — Get the message","murphy":"Present and past tenses; question tags"},{"week":14,"month":4,"topic":"High Note 4 · Unit 02: Looking ahead","resource":"High Note 4","monthTitle":"High Note 4: перші розділи","unit":"Unit 02 — Looking ahead","murphy":"Future predictions; future plans and hopes"},{"week":15,"month":4,"topic":"High Note 4 · Unit 03: Influences","resource":"High Note 4","monthTitle":"High Note 4: перші розділи","unit":"Unit 03 — Influences","murphy":"Past and present habits; relative and participle clauses"},{"week":16,"month":4,"topic":"High Note 4 · Unit 04: Inside story","resource":"High Note 4","monthTitle":"High Note 4: перші розділи","unit":"Unit 04 — Inside story","murphy":"Narrative tenses; negative inversion"},{"week":17,"month":4,"topic":"High Note 4 · Unit 05: Making sense of the senses","resource":"High Note 4","monthTitle":"High Note 4: перші розділи","unit":"Unit 05 — Making sense of the senses","murphy":"Gerunds, infinitives and verb patterns"},{"week":18,"month":5,"topic":"High Note 4 · Unit 06: Where we live","resource":"High Note 4","monthTitle":"High Note 4: наступні розділи","unit":"Unit 06 — Where we live","murphy":"Modals; articles"},{"week":19,"month":5,"topic":"High Note 4 · Unit 07: Is it fair?","resource":"High Note 4","monthTitle":"High Note 4: наступні розділи","unit":"Unit 07 — Is it fair?","murphy":"Reported speech and reporting verbs"},{"week":20,"month":5,"topic":"High Note 4 · Unit 08: Digital perspectives","resource":"High Note 4","monthTitle":"High Note 4: наступні розділи","unit":"Unit 08 — Digital perspectives","murphy":"Passive voice; impersonal passive"},{"week":21,"month":5,"topic":"High Note 4 · Unit 09: Highs and lows","resource":"High Note 4","monthTitle":"High Note 4: наступні розділи","unit":"Unit 09 — Highs and lows","murphy":"Conditionals; wish / if only"},{"week":22,"month":6,"topic":"High Note 4 · Unit 10: Culture vulture","resource":"High Note 4","monthTitle":"High Note 4: завершення і перевірка","unit":"Unit 10 — Culture vulture","murphy":"Past modals; reduced adverbial clauses"},{"week":23,"month":6,"topic":"High Note 4 · повторення першої половини","resource":"High Note 4","monthTitle":"High Note 4: завершення і перевірка","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":24,"month":6,"topic":"High Note 4 · повторення другої половини","resource":"High Note 4","monthTitle":"High Note 4: завершення і перевірка","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":25,"month":6,"topic":"Складні форми дієслова у власному мовленні","resource":"High Note 4","monthTitle":"High Note 4: завершення і перевірка","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":26,"month":7,"topic":"Gerund / infinitive + практика речень","resource":"Murphy + High Note","monthTitle":"Складні граматичні конструкції","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":27,"month":7,"topic":"Conditionals у реальних ситуаціях","resource":"Murphy + High Note","monthTitle":"Складні граматичні конструкції","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":28,"month":7,"topic":"Passive Voice / Reported Speech","resource":"Murphy + High Note","monthTitle":"Складні граматичні конструкції","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":29,"month":7,"topic":"Власні помилки: граматична діагностика","resource":"Murphy + High Note","monthTitle":"Складні граматичні конструкції","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":30,"month":7,"topic":"Колокації з твоїх старих словників","resource":"Murphy + High Note","monthTitle":"Складні граматичні конструкції","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":31,"month":8,"topic":"Фразові дієслова у побутових розмовах","resource":"Зошити + Speak Your Mind","monthTitle":"Активна лексика та швидкість мовлення","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":32,"month":8,"topic":"Дискусія: рішення, аргументи, приклади","resource":"Зошити + Speak Your Mind","monthTitle":"Активна лексика та швидкість мовлення","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":33,"month":8,"topic":"Переказ подій і spontaneous speaking","resource":"Зошити + Speak Your Mind","monthTitle":"Активна лексика та швидкість мовлення","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":34,"month":8,"topic":"Підсумок активного словника","resource":"Зошити + Speak Your Mind","monthTitle":"Активна лексика та швидкість мовлення","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":35,"month":9,"topic":"Англомовні відео з субтитрами","resource":"Аудіо + серіали + High Note","monthTitle":"Фільми, слухання та вимова","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":36,"month":9,"topic":"Shadowing: вимова й ритм речення","resource":"Аудіо + серіали + High Note","monthTitle":"Фільми, слухання та вимова","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":37,"month":9,"topic":"Listening без пауз на коротких уривках","resource":"Аудіо + серіали + High Note","monthTitle":"Фільми, слухання та вимова","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":38,"month":9,"topic":"Обговорення улюбленого фільму","resource":"Аудіо + серіали + High Note","monthTitle":"Фільми, слухання та вимова","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":39,"month":10,"topic":"Читання: сюжет, герої, думки","resource":"Читання + Murphy","monthTitle":"Книги та письмо","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":40,"month":10,"topic":"Читання: 5–10 сторінок за заняття","resource":"Читання + Murphy","monthTitle":"Книги та письмо","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":41,"month":10,"topic":"Розгорнуті письмові відповіді","resource":"Читання + Murphy","monthTitle":"Книги та письмо","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":42,"month":10,"topic":"Відгук про книгу або фільм","resource":"Читання + Murphy","monthTitle":"Книги та письмо","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":43,"month":10,"topic":"Вчительська англійська: мова класу","resource":"Читання + Murphy","monthTitle":"Книги та письмо","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":44,"month":11,"topic":"Пояснюю граматику англійською","resource":"Комплексна практика","monthTitle":"Англійська для майбутньої вчительки","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":45,"month":11,"topic":"Планую 5-хвилинний мініурок","resource":"Комплексна практика","monthTitle":"Англійська для майбутньої вчительки","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":46,"month":11,"topic":"Проводжу мініурок і отримую фідбек","resource":"Комплексна практика","monthTitle":"Англійська для майбутньої вчительки","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":47,"month":11,"topic":"Повторення активної лексики року","resource":"Комплексна практика","monthTitle":"Англійська для майбутньої вчительки","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":48,"month":12,"topic":"Повторення Murphy: складні теми","resource":"Зміцнення B1/B2","monthTitle":"Підсумок року","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":49,"month":12,"topic":"Перевірка Reading + Listening","resource":"Зміцнення B1/B2","monthTitle":"Підсумок року","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":50,"month":12,"topic":"Перевірка Speaking + Writing","resource":"Зміцнення B1/B2","monthTitle":"Підсумок року","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":51,"month":12,"topic":"Підсумкова діагностика й наступна ціль","resource":"Зміцнення B1/B2","monthTitle":"Підсумок року","murphy":"За граматикою поточного розділу та особистими помилками"},{"week":52,"month":12,"topic":"Резервний тиждень і завершення циклу","resource":"Зміцнення B1/B2","monthTitle":"Підсумок року","murphy":"За граматикою поточного розділу та особистими помилками"}],"vocab":[["I tend to","Я зазвичай / я схильна"],["I struggle with","Мені важко дається"],["I’m used to","Я звикла до"],["I feel like","Мені хочеться / мені здається"],["It depends on","Це залежить від"],["express my thoughts","Висловлювати свої думки"],["make a decision","Ухвалювати рішення"],["deal with a problem","Справлятися з проблемою"],["come up with an idea","Придумати ідею"],["bring something up","Порушити тему в розмові"],["think things through","Ретельно все обдумати"],["at my own pace","У власному темпі"],["in advance","Заздалегідь"],["spontaneously","Спонтанно"],["mood","Настрій"],["keep practising","Продовжувати практикуватися"],["review vocabulary","Повторювати лексику"],["revise grammar","Повторювати граматику"],["floral pattern","Квітковий візерунок"],["chest of drawers","Комод"],["before making a decision","перед ухваленням рішення"],["need someone to help","потрібно, щоб хтось допоміг"],["get dressed","одягатися"],["act spontaneously","діяти спонтанно"]]};</script>
@@ -292,7 +302,7 @@ function renderSettings(){
  <div class="columns"><div><div class="card"><h3>Дата початку 52-тижневого циклу</h3><p class="info">Важливо: вибирай понеділок. Якщо змінити дату після початку, збережені галочки залишаться прив’язаними до старих календарних дат.</p><label class="field">Перший понеділок програми<input type="date" id="startDate" value="${safe(state.startDate)}"></label><button class="btn" style="margin-top:13px" data-action="save-start">Зберегти дату</button></div>
  <div class="card"><h3>Резервна копія</h3><p class="info">Галочки, назви Unit, нотатки та власні слова зберігаються в цьому браузері, але можуть зникнути після очищення даних браузера. Експортуй JSON хоча б раз на тиждень.</p><div class="flex"><button class="btn" data-action="export">↓ Експорт прогресу (.json)</button><label class="btn alt" style="cursor:pointer;display:inline-block">↑ Імпорт копії <input id="importFile" type="file" accept="application/json,.json" style="display:none"></label></div></div></div>
  <div><div class="card"><h3>Що є в програмі</h3><p><strong>Тижні 1–10:</strong> High Note 3 Units 1–10<br><strong>11–12:</strong> повторення High Note 3<br><strong>13–24:</strong> High Note 4 + повторення<br><strong>25–52:</strong> Murphy, активна лексика, читання, аудіювання, розмови й англійська майбутньої вчительки</p><div class="alert">Для High Note 3 справжні назви Units вже додано. Назви всіх 10 Units High Note 4 уже додані. Murphy і старий словник працюють увесь рік.</div></div>
- <div class="card"><h3>Безпека даних</h3><p class="info">Сайт не надсилає твої нотатки на сервер. Автоматичної синхронізації з телефоном або іншим браузером немає. Для перенесення використовуй експорт / імпорт.</p><button class="btn warn small" data-action="reset">Очистити весь прогрес</button></div></div></div>`;
+ <div class="card"><h3>Безпека даних</h3><p class="info">До входу в Google прогрес залишається лише у цьому браузері. Після Google-входу він також надсилається до приватного документа Firestore. Для додаткової безпеки регулярно експортуй резервну копію.</p><button class="btn warn small" data-action="reset">Очистити весь прогрес</button></div></div></div>`;
  bindCommon();qs('#importFile').onchange=async e=>{const file=e.target.files?.[0];if(!file)return;try{const obj=JSON.parse(await file.text());if(!obj||!obj.data||typeof obj.data.startDate!=='string'||typeof obj.data.done!=='object')throw new Error('Неправильний формат');if(!confirm('Імпорт замінить поточні відмітки та нотатки. Продовжити?'))return;state={...fresh(),...obj.data};save();selectedDate=todayIso;alert('Резервну копію імпортовано.');setTab('today')}catch(err){alert('Не вдалося прочитати резервну копію: '+err.message)}};
 }
 function exportData(){const backup={application:'My English Year',version:1,exportedAt:new Date().toISOString(),data:state};const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='english-progress-'+localIso(new Date())+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
@@ -402,22 +412,23 @@ function renderResources(){title('Мої книги та посилання','Р
  document.querySelectorAll('[data-book-save]').forEach(btn=>btn.onclick=()=>{const id=btn.dataset.bookSave;const v=qs('[data-book-url="'+id+'"]').value.trim();if(v&&!safeHttpUrl(v)){alert('Введи правильне посилання, яке починається з https:// або http://');return;}state.resourceLinks=state.resourceLinks||{};state.resourceLinks[id]=v;save();renderResources();});
  qs('#selectMurphy').onchange=e=>{const file=e.target.files?.[0];if(!file)return;if(!/\.pdf$/i.test(file.name)&&file.type!=='application/pdf'){alert('Обери файл PDF');return;}const url=URL.createObjectURL(file);window.open(url,'_blank','noopener');setTimeout(()=>URL.revokeObjectURL(url),60000);};
 }
-const cloudHelp=`<div class="card"><h3>Як увімкнути автоматичну синхронізацію</h3>
- <p><span class="stepNum">1</span> Опублікуй цей файл як <strong>index.html</strong> на GitHub Pages. Тоді матимеш одне посилання для комп’ютера і телефона.</p>
- <p><span class="stepNum">2</span> Створи власний проєкт у <strong>Firebase Console</strong>, увімкни <strong>Google sign-in</strong> в Authentication та створи базу <strong>Cloud Firestore</strong>.</p>
- <p><span class="stepNum">3</span> У Firebase Authentication → Settings → Authorized domains додай свій домен GitHub Pages (<em>username.github.io</em>).</p>
- <p><span class="stepNum">4</span> Встанови правила доступу Firestore з інструкції (лише власник акаунта може читати і змінювати свій прогрес).</p>
- <p><span class="stepNum">5</span> Скопіюй <strong>Firebase web app config</strong> у поле нижче, підключи Google на комп’ютері й повтори на телефоні з <strong>тим самим акаунтом</strong>.</p>
- <div class="smallWarn"><strong>Важливо:</strong> без цих налаштувань автоматичної синхронізації немає. Великі тексти займають місце у хмарі; роби резервні копії. Не вставляй сюди паролі чи приватні ключі сервісного акаунта. Після підключення хмарні записи будуть доступні Firebase-проєкту, яким ти керуєш.</div></div>`;
-function renderCloud(){title('Синхронізація','Можна перенести прогрес вручну вже зараз. Автосинхронізація потребує налаштування хмарного проєкту.','КОМП’ЮТЕР + ТЕЛЕФОН');
- qs('#screen').innerHTML=hero('Твій прогрес на різних пристроях.','У простої HTML-сторінки немає спільної бази даних. Відкриття одного сайту на двох пристроях саме по собі не синхронізує галочки.','Хмарне збереження — за бажанням')+`<div class="columns"><div>${cloudHelp}<div class="card"><h3>Підключити Firebase</h3><p class="info">Встав JSON конфігурації ВЕБДОДАТКА, а не приватні ключі. Підключення працює на опублікованому сайті HTTPS; у локальному файлі авторизація може не працювати.</p><textarea id="firebaseConfig" rows="6" placeholder='{"apiKey":"...","authDomain":"...","projectId":"...","appId":"..."}'></textarea><div class="flex" style="margin-top:12px"><button id="cloudConnect" class="btn">Увійти через Google й синхронізувати</button><button id="cloudDisconnect" class="btn alt">Вийти</button></div><p id="cloudState" class="cloudStatus" style="margin-top:12px">Не підключено</p></div></div><div><div class="card"><h3>Без налаштувань: ручне перенесення</h3><p>1. На комп'ютері перейди в «Налаштування» → «Експорт прогресу».</p><p>2. Перешли файл <strong>.json</strong> собі на телефон.</p><p>3. Відкрий цей сайт на телефоні й вибери «Імпорт копії».</p><p>4. Якщо навчаєшся з телефона, перед поверненням на комп'ютер зроби зворотний експорт.</p><div class="alert">Ручний спосіб не оновлює дані автоматично, зате не потребує акаунтів чи хмарного налаштування.</div><button class="btn alt" data-action="settings" style="margin-top:12px">Експорт / імпорт →</button></div><div class="card"><h3>Де отримати налаштування</h3><p><a href="https://console.firebase.google.com/" target="_blank" rel="noopener noreferrer">Firebase Console ↗</a></p><p><a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages ↗</a></p><p class="caption">Без опублікування сторінки телефон не відкриє файл, що лежить лише на диску комп'ютера.</p></div></div></div>`;
- bindCommon();
- let savedConfig='';try{savedConfig=localStorage.getItem('english_firebase_config_v1')||''}catch(e){}qs('#firebaseConfig').value=savedConfig;
- const msg=window.cloudStatus||'Не підключено';qs('#cloudState').textContent=msg;
- qs('#cloudConnect').onclick=async()=>{const raw=qs('#firebaseConfig').value.trim();let cfg;try{cfg=JSON.parse(raw);if(!cfg.projectId||!cfg.authDomain||!cfg.apiKey||!cfg.appId)throw new Error('Вкажи apiKey, authDomain, projectId та appId');}catch(e){alert('Перевір JSON: '+e.message);return}localStorage.setItem('english_firebase_config_v1',raw);qs('#cloudState').textContent='Завантаження Firebase...';if(!window.connectPlannerCloud){qs('#cloudState').textContent='Модуль Firebase ще завантажується. Спробуй за кілька секунд.';return}try{await window.connectPlannerCloud(cfg)}catch(e){qs('#cloudState').textContent='Помилка підключення: '+e.message;}};
- qs('#cloudDisconnect').onclick=()=>window.disconnectPlannerCloud?.();}
+ const cloudHelp=`<div class="card"><h3>Збереження між пристроями</h3>
+ <p>Підключення до <strong>My English Year</strong> вже налаштоване. Натисни <strong>«Увійти через Google»</strong> і обери той самий акаунт, який використовуєш на комп’ютері та iPhone.</p>
+ <p>Після входу галочки, словник, книги, фільми, Writing та налаштування зберігатимуться у твоєму приватному просторі Firestore.</p>
+ <div class="cloudNotice"><strong>Перший вхід:</strong> якщо в хмарі вже є дані, сайт запропонує завантажити їх. Якщо в браузері теж є важливий прогрес, спочатку експортуй резервну копію в «Налаштуваннях». Не входь одночасно з різними акаунтами.</div>
+ <p class="caption">Зміни синхронізуються за наявності інтернету. При втраті зв’язку вони залишаються локально, але можуть не надіслатися до хмари, доки не повернеться зв’язок. Якщо браузер показує помилку входу, відкрий сайт безпосередньо у вкладці Chrome чи Safari.</p></div>`;
+ function renderCloud(){
+  title('Синхронізація','Google-вхід і приватний прогрес на двох пристроях.','КОМП’ЮТЕР + ТЕЛЕФОН');
+  qs('#screen').innerHTML=hero('Один прогрес — з комп’ютера й телефона.','Входь через один Google-акаунт. Після збереження зміни з’являться на другому пристрої.','Firebase підключено')+`<div class="columns"><div>${cloudHelp}<div class="card"><h3>Мій Google-вхід</h3><p class="info">Конфігурація Firebase вже додана до сайту. Нічого копіювати або вводити не потрібно.</p><div class="cloudActions"><button id="cloudConnect" class="btn">Увійти через Google</button><button id="cloudDisconnect" class="btn alt">Вийти з Google</button></div><p id="cloudState" class="cloudStatus" style="margin-top:12px">${safe(window.cloudStatus||'Перевіряємо Google-вхід…')}</p></div></div><div><div class="card"><h3>Резервна копія — про всяк випадок</h3><p>Навіть після синхронізації рекомендується щотижня зберігати JSON-файл. У разі конфлікту між пристроями цей файл допоможе відновити прогрес.</p><div class="flex"><button class="btn alt" data-action="export">↓ Зберегти копію</button><button class="btn alt" data-action="settings">Перейти до налаштувань</button></div></div><div class="card"><h3>Конфіденційність</h3><p>Особисті записи зберігаються в Firestore за шляхом <code>users/твій-UID/planner/main</code>. Доступ обмежують правила <code>request.auth.uid == userId</code>. Це окремо від публічного GitHub.</p><p class="caption">Не завантажуй резервні копії прогресу в публічний репозиторій GitHub.</p></div></div></div>`;
+  bindCommon();
+  qs('#cloudConnect').onclick=async()=>{
+    if(!window.connectPlannerCloud){window.plannerCloudStatus('Підключення завантажується. Спробуй за кілька секунд.');return;}
+    try{await window.connectPlannerCloud()}catch(e){window.plannerCloudStatus('Не вдалося увійти: '+(e?.message||e));}
+  };
+  qs('#cloudDisconnect').onclick=async()=>{try{await window.disconnectPlannerCloud?.();}catch(e){window.plannerCloudStatus('Помилка виходу: '+e.message)}};
+ }
 window.plannerAPI={get:()=>state,apply:(value)=>{state={...fresh(),...value};localStorage.setItem(STORAGE_KEY,JSON.stringify(state));render()},today:()=>todayIso};
-window.plannerCloudStatus=function(message){window.cloudStatus=message;const label=document.getElementById('cloudState');if(label)label.textContent=message;};
+window.plannerCloudStatus=function(message){window.cloudStatus=message;const label=document.getElementById('cloudState');if(label)label.textContent=message;const indicator=document.getElementById('syncIndicator');if(indicator){indicator.textContent='☁ '+message;indicator.classList.toggle('isError',/помилка|помилк|не вдалося|немає інтернету|не підключено/i.test(message))}};
 
 // Separate, easy-to-find source vocabulary browser (does not change existing card history).
 let vocabListScope='Юніт 3';let vocabListSearch='';let vocabListCategory='Усі теми';let vocabListLimit=50;
@@ -513,62 +524,124 @@ render();
 </script>
 
 <script type="module">
-let auth=null,db=null,unsub=null,cloudReady=false,saveTimer=null,cloudDoc=null,cloudUid=null;
-let currentCfg=null;
-const setStatus=m=>window.plannerCloudStatus?.(m);
-const api={};
-let firebaseAuth={},firebaseStore={};
-async function loadFirebase(cfg){
- const [appMod,authMod,dbMod]=await Promise.all([
-  import('https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js'),
-  import('https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'),
-  import('https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js')]);
- firebaseAuth=authMod;firebaseStore=dbMod;
- const app=appMod.getApps().find(x=>x.name==='english-year')||appMod.initializeApp(cfg,'english-year');
- auth=authMod.getAuth(app);db=dbMod.getFirestore(app);
- return auth;
-}
-async function attachUser(user){if(unsub){unsub();unsub=null}cloudReady=false;cloudUid=user.uid;cloudDoc=firebaseStore.doc(db,'users',cloudUid,'planner','main');
- const snapshot=await firebaseStore.getDoc(cloudDoc);
- if(snapshot.exists()){
-   const remote=snapshot.data().data;const local=window.plannerAPI.get();
-   if(remote&&JSON.stringify(remote)!==JSON.stringify(local)){
-     if(confirm('У хмарі вже є збережений прогрес. Завантажити його на цей пристрій?\n\nOK = завантажити хмарний.\nСкасувати = залишити локальний та перезаписати хмарний.'))window.plannerAPI.apply(remote);
-     else await firebaseStore.setDoc(cloudDoc,{data:local,updatedAt:firebaseStore.serverTimestamp()});
-   }
- }else{
-   await firebaseStore.setDoc(cloudDoc,{data:window.plannerAPI.get(),updatedAt:firebaseStore.serverTimestamp()});
- }
- cloudReady=true;
- unsub=firebaseStore.onSnapshot(cloudDoc,snap=>{
-  if(!cloudReady||!snap.exists()||snap.metadata.hasPendingWrites)return;
-  const incoming=snap.data().data;if(!incoming)return;
-  const current=window.plannerAPI.get();
-  if(JSON.stringify(current)!==JSON.stringify(incoming)){
-   if(saveTimer)return; // finish current local edit first; last write wins for simultaneous edits
-   window.plannerAPI.apply(incoming);
-   setStatus('Синхронізовано з хмарою · Google акаунт підключено');
-  }
- },err=>setStatus('Помилка читання хмари: '+err.message));
- setStatus('Підключено до Google · синхронізація активна');
-}
-window.connectPlannerCloud=async cfg=>{
- if(!/^https?:$/.test(location.protocol)){throw new Error('Спочатку відкрий сайт за HTTPS-адресою, а не як файл з диска.')}
- if(currentCfg&&currentCfg.projectId!==cfg.projectId){throw new Error('Проєкт уже ініціалізовано. Для зміни проєкту перезавантаж сторінку.')}
- currentCfg=cfg;setStatus('Відкриваємо вхід Google...');
- await loadFirebase(cfg);
- const provider=new firebaseAuth.GoogleAuthProvider();
- const result=await firebaseAuth.signInWithPopup(auth,provider);
- await attachUser(result.user);
+// Firebase web configuration is public client metadata, NOT a service-account private key.
+const firebaseConfig={
+ apiKey:"AIzaSyCOXC7FohKdMLKMhznRuLmsMuNgZC00sWQ",
+ authDomain:"my-english-year.firebaseapp.com",
+ projectId:"my-english-year",
+ storageBucket:"my-english-year.firebasestorage.app",
+ messagingSenderId:"746883564893",
+ appId:"1:746883564893:web:f3d7bf1c38dd5f9b01d4b4"
 };
-window.disconnectPlannerCloud=async()=>{if(unsub){unsub();unsub=null}cloudReady=false;clearTimeout(saveTimer);saveTimer=null;if(auth)await firebaseAuth.signOut(auth);setStatus('Вийшла з Google · локальні дані залишилися в браузері');};
-window.addEventListener('planner:saved',()=>{if(!cloudReady||!cloudDoc)return;
- clearTimeout(saveTimer);saveTimer=setTimeout(async()=>{
-  saveTimer=null;if(!cloudReady)return;
-  try{await firebaseStore.setDoc(cloudDoc,{data:window.plannerAPI.get(),updatedAt:firebaseStore.serverTimestamp()});setStatus('Зміни збережено в хмарі ✓')}
-  catch(e){setStatus('Не вдалося надіслати зміни: '+e.message)}
- },900);
+let auth,db,authApi,storeApi,docRef,unsubscribe=null,ready=false,writing=false,saveTimer=null;
+let signedInUid=null,session=0;
+let initialization=null;
+const status=(s)=>window.plannerCloudStatus?.(s);
+const stateJson=()=>JSON.stringify(window.plannerAPI.get());
+const score=data=>{
+ if(!data||typeof data!=='object')return 0;
+ const keys=['done','tasks','notes','weekUnit','vocabDone','srs','resourceLinks'];
+ return keys.reduce((n,k)=>n+Object.keys(data[k]||{}).length,0)+
+  (Array.isArray(data.extraVocab)?data.extraVocab.length:0)+
+  (Array.isArray(data.media)?data.media.length:0);
+};
+function detach(){if(unsubscribe){unsubscribe();unsubscribe=null}clearTimeout(saveTimer);saveTimer=null;ready=false;docRef=null;signedInUid=null;writing=false;}
+async function attach(user){
+ detach();const token=++session;
+ if(!user){status('Не підключено · прогрес локальний');return}
+ signedInUid=user.uid;
+ status('Google-вхід виконано · перевіряємо дані в хмарі…');
+ docRef=storeApi.doc(db,'users',user.uid,'planner','main');
+ try{
+  const snapshot=await storeApi.getDocFromServer(docRef);
+  if(token!==session)return;
+  const local=window.plannerAPI.get();
+  if(snapshot.exists()){
+   const remote=snapshot.data().data;
+   if(remote&&JSON.stringify(remote)!==JSON.stringify(local)){
+    const localScore=score(local),remoteScore=score(remote);
+    if(!remoteScore&&localScore){
+      if(!confirm('У хмарі немає заповненого прогресу, але в цьому браузері є виконані завдання або нотатки. Завантажити ЛОКАЛЬНИЙ прогрес у хмару?\n\nOK — завантажити локальний. Скасувати — не синхронізувати, доки не зробиш резервну копію.')){
+       status('Локальні дані збережено. Синхронізацію призупинено; спочатку зроби експорт JSON.');return;
+      }
+      await storeApi.setDoc(docRef,{data:local,updatedAt:storeApi.serverTimestamp()});
+    }else if(localScore&&remoteScore){
+      if(!confirm('У цьому браузері та у хмарі є РІЗНИЙ прогрес.\n\nOK — завантажити ХМАРНИЙ прогрес на цей пристрій.\nСкасувати — нічого не перезаписувати і призупинити синхронізацію.\n\nРекомендуємо спершу зберегти резервну копію у Налаштуваннях.')){
+       status('Локальні дані збережено. Синхронізацію призупинено.');return;
+      }
+      window.plannerAPI.apply(remote);
+    }else if(remoteScore||!localScore){window.plannerAPI.apply(remote)}
+   }
+  } else {
+   await storeApi.setDoc(docRef,{data:local,updatedAt:storeApi.serverTimestamp()});
+  }
+  if(token!==session)return;
+  ready=true;
+  unsubscribe=storeApi.onSnapshot(docRef,{includeMetadataChanges:false},snap=>{
+   if(token!==session||!ready||!snap.exists()||snap.metadata.hasPendingWrites)return;
+   const remote=snap.data().data;
+   if(!remote||writing||saveTimer)return;
+   if(JSON.stringify(remote)!==stateJson()){
+      window.plannerAPI.apply(remote);
+      status('Дані оновлено з іншого пристрою ✓');
+   }
+  },err=>status('Помилка читання хмари: '+err.message));
+  status('Синхронізація активна ✓');
+ }catch(e){if(token===session){ready=false;status('Помилка підключення Firebase: '+e.message)}}
+}
+async function init(){
+ if(initialization)return initialization;
+ initialization=(async()=>{
+  if(!/^https?:$/.test(location.protocol)){status('Для Google-входу відкрий опублікований HTTPS-сайт.');return}
+  status('Перевіряємо вхід Google…');
+  const [appMod,authMod,storeMod]=await Promise.all([
+   import('https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js'),
+   import('https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'),
+   import('https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js')
+  ]);
+  authApi=authMod;storeApi=storeMod;
+  const app=appMod.getApps().find(x=>x.name==='english-year')||appMod.initializeApp(firebaseConfig,'english-year');
+  auth=authMod.getAuth(app);db=storeMod.getFirestore(app);
+  authMod.onAuthStateChanged(auth,user=>{attach(user)},e=>status('Помилка авторизації: '+e.message));
+  return true;
+ })().catch(e=>{status('Помилка завантаження Firebase: '+e.message);initialization=null;throw e});
+ return initialization;
+}
+window.connectPlannerCloud=async()=>{
+ if(!/^https?:$/.test(location.protocol))throw new Error('Відкрий сайт за HTTPS-посиланням GitHub Pages.');
+ await init();
+ if(!auth)throw new Error('Firebase ще не підключено.');
+ if(auth.currentUser){if(!ready)await attach(auth.currentUser);else status('Ти вже увійшла · синхронізація активна ✓');return;}
+ status('Відкриваємо вікно Google-входу…');
+ const provider=new authApi.GoogleAuthProvider();
+ try{await authApi.signInWithPopup(auth,provider)}
+ catch(e){
+  if(e.code==='auth/popup-blocked')throw new Error('Браузер заблокував вікно Google. Дозволь спливні вікна для сайту й повтори.');
+  if(e.code==='auth/unauthorized-domain')throw new Error('Перевір дозволений домен ulyanahnot-arch.github.io у Firebase Authentication.');
+  throw e;
+ }
+};
+window.disconnectPlannerCloud=async()=>{
+ detach();++session;
+ if(auth)await authApi.signOut(auth);
+ status('Вийшла з Google · локальний прогрес залишився у цьому браузері.');
+};
+window.addEventListener('planner:saved',()=>{
+ if(!ready||!docRef||!navigator.onLine){if(!navigator.onLine)status('Немає інтернету · зміни збережено тільки локально.');return;}
+ clearTimeout(saveTimer);
+ saveTimer=setTimeout(async()=>{
+  saveTimer=null;if(!ready||!docRef)return;
+  const payload=window.plannerAPI.get();
+  const length=JSON.stringify(payload).length;
+  if(length>850000){status('Хмарний запис завеликий. Збережи резервну копію й скороти довгі нотатки.');return}
+  writing=true;
+  try{await storeApi.setDoc(docRef,{data:payload,updatedAt:storeApi.serverTimestamp()});status('Зміни збережено у хмарі ✓')}
+  catch(e){status('Помилка запису в хмару: '+e.message)}
+  finally{writing=false}
+ },1100);
 });
+window.addEventListener('online',()=>{if(!auth?.currentUser)return;status('Інтернет відновлено · повторно підключаємо синхронізацію…');attach(auth.currentUser)});
+init();
 </script>
 </body>
 </html>
